@@ -153,6 +153,6 @@ class AccountAssetAsset(models.Model):
     ):
         if self.env.context.get("use_percentage", False):
             return self.depreciation_base * self.annual_percentage / 100
-        return super(AccountAssetAsset, self)._get_amount_linear(
+        return super()._get_amount_linear(
             depreciation_start_date, depreciation_stop_date, entry
         )

@@ -74,6 +74,8 @@ Contributors
    -  Valentin Vinagre
    -  Manuel Regidor
 
+-  Marwan B.
+
 Maintainers
 -----------
 
