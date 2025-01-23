@@ -177,9 +177,10 @@ class TestL10nEsAeatMod369Base(TestL10nEsAeatModBase):
     def create_account_move(self):
         self.model369.journal_id = self.journal_misc.id
         account_template = self.env.ref(f"account.{self.company.id}_account_common_477")
-        account_477 = self.model369.company_id.get_account_from_template(
-            account_template
-        )
+        # account_477 = self.model369.company_id.get_account_from_template(
+        #     account_template
+        # )
+        account_477 = self.model369.company_id._get_account_id_from_xmlid(account_template.name)
         self.model369.counterpart_account_id = account_477.id
         self.model369.button_confirm()
         self.model369.button_post()
