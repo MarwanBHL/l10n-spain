@@ -27,17 +27,16 @@ class TestL10nEsAeatMod303Base(TestL10nEsAeatModBase):
         "S_IVA21B": (1400, 294),
         "S_IVA21B//neg": (-140, -29.4),
         "S_IVA21S": (1500, 315),
-        "S_IVA21ISP": (1600, 336),
         "S_REQ05": (1700, 8.5),
         "S_REQ014": (1800, 25.2),
         "S_REQ52": (1900, 98.8),
-        "S_IVA0_E": (2000, 0),
+        "S_IVA0_G_E": (2000, 0),
         "S_IVA_E": (2100, 0),
         "S_IVA_NS": (2200, 0),
         "S_IVA0_ISP": (2300, 0),
-        "S_IVA0_IC": (2400, 0),
+        "S_IVA0_G_I": (2400, 0),
         "S_IVA0_SP_I": (2500, 0),
-        "S_IVA0": (2600, 0),
+        "S_IVA0_E": (2600, 0),
     }
     taxes_purchase = {
         # tax code: (base, tax_amount)
@@ -55,7 +54,6 @@ class TestL10nEsAeatMod303Base(TestL10nEsAeatModBase):
         "P_IVA21_SP_EX": (130, 0),
         "P_IVA4_ISP": (140, 0),
         "P_IVA10_ISP": (150, 0),
-        "P_IVA21_ISP": (160, 0),
         "P_IVA4_SC": (210, 8.4),
         "P_IVA4_SC//neg": (-21, -0.84),
         "P_IVA10_SC": (220, 22),
@@ -89,11 +87,11 @@ class TestL10nEsAeatMod303Base(TestL10nEsAeatModBase):
         # Régimen General - Cuota 10%
         "6": (3 * 120) + (3 * 130) - 3 * 12,  # S_IVA10B, S_IVA10S
         # Régimen General - Base imponible 21%
-        # S_IVA21B, S_IVA21S, S_IVA21ISP
-        "7": (3 * 1400) + (3 * 1500) + (3 * 1600) - 3 * 140,
+        # S_IVA21B, S_IVA21S
+        "7": (3 * 1400) + (3 * 1500) - 3 * 140,
         # Régimen General - Cuota 21%
-        # S_IVA21B, S_IVA21S, S_IVA21ISP
-        "9": (3 * 294) + (3 * 315) + (3 * 336) - 3 * 29.4,
+        # S_IVA21B, S_IVA21S
+        "9": (3 * 294) + (3 * 315) - 3 * 29.4,
         # Adq. intracomunitarias de bienes y servicios - Base
         "10": (
             (3 * 100)
@@ -125,7 +123,6 @@ class TestL10nEsAeatMod303Base(TestL10nEsAeatModBase):
             + (3 * 130)
             + (3 * 140)  # P_IVAx_SP_EX_1
             + (3 * 150)
-            + (3 * 160)  # P_IVAx_ISP_2
         ),
         # Op. inv. del suj. pasivo (excepto adq. intracom.) - Cuota
         "13": (
@@ -134,7 +131,6 @@ class TestL10nEsAeatMod303Base(TestL10nEsAeatModBase):
             + (3 * 27.3)
             + (3 * 5.6)  # P_IVAx_SP_EX_1
             + (3 * 15)
-            + (3 * 33.6)  # P_IVAx_ISP_2
         ),
         # Modificación bases y cuotas - Base (Compras y ventas)
         "14": (
@@ -148,9 +144,8 @@ class TestL10nEsAeatMod303Base(TestL10nEsAeatModBase):
                 - 120
                 + 1400  # S_IVA10B, S_IVA10S
                 + 1500
-                + 1600
                 - 140
-                + 100  # S_IVA21B,S_IVA21S,S_IVA21ISP
+                + 100  # S_IVA21B,S_IVA21S
                 + 200
                 + 300
                 + 400  # P_IVAx_IC_BC_2
@@ -164,7 +159,6 @@ class TestL10nEsAeatMod303Base(TestL10nEsAeatModBase):
                 + 130
                 + 140  # P_IVAx_SP_EX_1
                 + 150
-                + 160
             )  # P_IVAx_ISP_2
         ),
         # Modificación bases y cuotas - Cuota (Compras y ventas)
@@ -179,9 +173,8 @@ class TestL10nEsAeatMod303Base(TestL10nEsAeatModBase):
                 - 12
                 + 294  # S_IVA10B, S_IVA10S
                 + 315
-                + 336
                 - 29.4
-                + 4  # S_IVA21B, S_IVA21S, S_IVA21ISP
+                + 4  # S_IVA21B, S_IVA21S
                 + 20
                 + 63
                 + 16  # P_IVAx_IC_BC_2
@@ -195,8 +188,7 @@ class TestL10nEsAeatMod303Base(TestL10nEsAeatModBase):
                 + 27.3
                 + 5.6  # P_IVAx_SP_EX_1
                 + 15
-                + 33.6
-            )  # P_IVAx_ISP_2
+            )
         ),
         # Recargo equivalencia - Base imponible 0.5%
         "16": (3 * 1700),  # S_REQ05
@@ -221,7 +213,6 @@ class TestL10nEsAeatMod303Base(TestL10nEsAeatModBase):
             + (3 * 130)
             + (3 * 140)  # P_IVAx_SP_EX_2
             + (3 * 150)
-            + (3 * 160)
             + (3 * 210)  # P_IVAx_ISP_1
             + (3 * 220)
             + (3 * 230)
@@ -242,7 +233,6 @@ class TestL10nEsAeatMod303Base(TestL10nEsAeatModBase):
             + (3 * 27.3)
             + (3 * 5.6)  # P_IVAx_SP_EX_2
             + (3 * 15)
-            + (3 * 33.6)
             + (3 * 8.4)  # P_IVAx_ISP_1
             + (3 * 22)
             + (3 * 48.3)
@@ -329,7 +319,6 @@ class TestL10nEsAeatMod303Base(TestL10nEsAeatModBase):
                 + 130
                 + 140  # P_IVAx_SP_EX_2
                 + 150
-                + 160  # P_IVAx_ISP_1
             )
         ),
         # Rectificación de deducciones - Cuota
@@ -371,7 +360,6 @@ class TestL10nEsAeatMod303Base(TestL10nEsAeatModBase):
                 + 27.3
                 + 5.6  # P_IVAx_SP_EX_2
                 + 15
-                + 33.6  # P_IVAx_ISP_1
             )
         ),
         # Compensaciones Rég. especial A. G. y P. - Cuota compras
@@ -381,9 +369,9 @@ class TestL10nEsAeatMod303Base(TestL10nEsAeatModBase):
         # Regularización por aplicación del porcentaje definitivo de prorrata
         "44": 0,
         # Entregas intra. de bienes y servicios - Base ventas
-        "59": (2 * 2400) + (2 * 2500),  # S_IVA0_IC, S_IVA0_SP_I
+        "59": (2 * 2400) + (2 * 2500),  # S_IVA0_G_I, S_IVA0_SP_I
         # Exportaciones y operaciones asimiladas - Base ventas
-        "60": (2 * 2000) + (2 * 2600),  # S_IVA0_E + S_IVA0
+        "60": (2 * 2000) + (2 * 2600),  # S_IVA0_G_E + S_IVA0
         # Importes de las entregas de bienes y prestaciones de servicios
         # a las que habiéndoles sido aplicado el régimen especial del
         # criterio de caja hubieran resultado devengadas conforme a la regla
@@ -450,6 +438,23 @@ class TestL10nEsAeatMod303(TestL10nEsAeatMod303Base):
         cls._invoice_sale_create("2024-01-12")
         sale = cls._invoice_sale_create("2024-01-13")
         cls._invoice_refund(sale, "2024-01-14")
+        # Invoices for testing partial compensation
+        cls.taxes_sale = {"S_IVA21B": (2000, 420)}
+        cls.taxes_purchase = {"P_IVA21_BC": (500, 105)}
+        cls._invoice_sale_create("2025-01-01")
+        cls._invoice_purchase_create("2025-01-01")
+        cls.taxes_sale = {"S_IVA21B": (100, 21)}
+        cls.taxes_purchase = {"P_IVA21_BC": (4000, 840)}
+        cls._invoice_sale_create("2025-04-01")
+        cls._invoice_purchase_create("2025-04-01")
+        cls.taxes_sale = {"S_IVA21B": (3000, 630)}
+        cls.taxes_purchase = {"P_IVA21_BC": (100, 21)}
+        cls._invoice_sale_create("2025-07-01")
+        cls._invoice_purchase_create("2025-07-01")
+        cls.taxes_sale = {"S_IVA21B": (1350, 283.50)}
+        cls.taxes_purchase = {"P_IVA21_BC": (100, 21)}
+        cls._invoice_sale_create("2025-10-01")
+        cls._invoice_purchase_create("2025-10-01")
 
     def _check_tax_lines(self):
         for field, result in iter(self.taxes_result.items()):
@@ -609,3 +614,142 @@ class TestL10nEsAeatMod303(TestL10nEsAeatMod303Base):
         self.model303.date_end = "2023-03-31"
         self.model303.button_calculate()
         self._check_tax_lines()
+
+    def test_model_303_partial_compensation(self):
+        model303_1T = self.env["l10n.es.aeat.mod303.report"].create(
+            {
+                "name": "3030000020251",
+                "company_id": self.company.id,
+                "company_vat": "1234567890",
+                "contact_name": "Test owner",
+                "statement_type": "N",
+                "support_type": "T",
+                "contact_phone": "911234455",
+                "year": 2025,
+                "period_type": "1T",
+                "date_start": "2025-01-01",
+                "date_end": "2025-03-31",
+                "journal_id": self.journal_misc.id,
+            }
+        )
+        model303_1T.button_calculate()
+        model303_1T.button_confirm()
+        model303_1T.button_post()
+        # Check move lines from 303 1T 2025
+        self.assertRecordValues(
+            model303_1T.move_id.line_ids.sorted("balance"),
+            [
+                {
+                    "account_id": self.accounts["475000"].id,
+                    "debit": 0.0,
+                    "credit": 315.0,
+                },
+                {
+                    "account_id": self.accounts["472000"].id,
+                    "debit": 0.0,
+                    "credit": 105.0,
+                },
+                {
+                    "account_id": self.accounts["477000"].id,
+                    "debit": 420.0,
+                    "credit": 0.0,
+                },
+            ],
+        )
+
+        model303_2T = model303_1T.copy(
+            {
+                "name": "3030000020252",
+                "period_type": "2T",
+                "date_start": "2025-04-01",
+                "date_end": "2025-06-30",
+            }
+        )
+        model303_2T.button_calculate()
+        model303_2T.button_confirm()
+        model303_2T.button_post()
+        account_470 = self.env["account.account"].search(
+            [("company_id", "=", self.company.id), ("code", "=", "470000")]
+        )
+        # Check move lines from 303 2T 2025
+        self.assertRecordValues(
+            model303_2T.move_id.line_ids.sorted("balance"),
+            [
+                {
+                    "account_id": self.accounts["472000"].id,
+                    "debit": 0.0,
+                    "credit": 840.0,
+                },
+                {
+                    "account_id": self.accounts["477000"].id,
+                    "debit": 21.0,
+                    "credit": 0.0,
+                },
+                {"account_id": account_470.id, "debit": 819.0, "credit": 0.0},
+            ],
+        )
+
+        model303_3T = model303_1T.copy(
+            {
+                "name": "3030000020253",
+                "period_type": "3T",
+                "date_start": "2025-07-01",
+                "date_end": "2025-09-30",
+            }
+        )
+        model303_3T.button_calculate()
+        model303_3T.potential_cuota_compensar = 819
+        model303_3T.cuota_compensar = 609
+        model303_3T.button_confirm()
+        model303_3T.button_post()
+        # Check move lines from 303 3T 2025
+        self.assertRecordValues(
+            model303_3T.move_id.line_ids.sorted("balance"),
+            [
+                {"account_id": account_470.id, "debit": 0.0, "credit": 609.0},
+                {
+                    "account_id": self.accounts["472000"].id,
+                    "debit": 0.0,
+                    "credit": 21.0,
+                },
+                {
+                    "account_id": self.accounts["477000"].id,
+                    "debit": 630.0,
+                    "credit": 0.0,
+                },
+            ],
+        )
+
+        model303_4T = model303_1T.copy(
+            {
+                "name": "3030000020254",
+                "period_type": "4T",
+                "date_start": "2025-10-01",
+                "date_end": "2025-12-31",
+            }
+        )
+        model303_4T.button_calculate()
+        model303_4T.button_confirm()
+        model303_4T.button_post()
+        # Check move lines from 303 4T 2025
+        self.assertRecordValues(
+            model303_4T.move_id.line_ids.sorted("balance"),
+            [
+                {"account_id": account_470.id, "debit": 0.0, "credit": 210.0},
+                {
+                    "account_id": self.accounts["475000"].id,
+                    "debit": 0.0,
+                    "credit": 52.5,
+                },
+                {
+                    "account_id": self.accounts["472000"].id,
+                    "debit": 0.0,
+                    "credit": 21.0,
+                },
+                {
+                    "account_id": self.accounts["477000"].id,
+                    "debit": 283.50,
+                    "credit": 0.0,
+                },
+            ],
+        )

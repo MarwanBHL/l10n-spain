@@ -294,6 +294,11 @@
                                 name="casilla_65"
                                 class="oe_subtotal_footer_separator"
                             />
+                            <field
+                                name="casilla_658"
+                                readonly="state != 'calculated'"
+                            />
+                            <field name="casilla_84" readonly="state != 'calculated'" />
                             <field name="casilla_85" readonly="state != 'calculated'" />
                             <field
                                 name="casilla_86"
@@ -342,13 +347,14 @@
                         </group>
                     </page>
                 </notebook>
-                <separator string="Tax lines" invisible="state == 'draft'" />
-                <field
-                    name="tax_line_ids"
-                    nolabel="1"
-                    readonly="1"
-                    invisible="state == 'draft'"
-                />
+                <notebook invisible="state == 'draft'">
+                    <page string="Valued tax lines">
+                        <field name="valued_tax_line_ids" nolabel="1" readonly="1" />
+                    </page>
+                    <page string="Tax lines">
+                        <field name="tax_line_ids" nolabel="1" readonly="1" />
+                    </page>
+                </notebook>
             </group>
             <form position="inside">
                 <div class="oe_chatter">

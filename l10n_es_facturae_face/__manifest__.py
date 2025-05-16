@@ -3,7 +3,7 @@
 
 {
     "name": "Envío de Facturae a FACe",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "author": "Creu Blanca, Odoo Community Association (OCA)",
     "category": "Accounting & Finance",
     "website": "https://github.com/OCA/l10n-spain",
@@ -24,7 +24,6 @@
         "views/res_partner.xml",
         "views/edi_exchange_record.xml",
     ],
-    "external_dependencies": {"python": ["zeep", "cryptography==3.4.8"]},
     "installable": True,
     "maintainers": ["etobella"],
 }
